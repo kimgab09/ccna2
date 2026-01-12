@@ -250,12 +250,12 @@ ephone-dn 8
 ephone-dn 10
  number 6298
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address 203a.0782.bd3b
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address ccd8.c1fb.1519
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -288,10 +288,10 @@ configure terminal
  destination-pattern 11..
  session target ipv4:10.11.100.8
  codec g711ULAW
-  !dial-peer voice 12 Voip
-  !destination-pattern 12..
-  !session target ipv4:10.12.100.8
-  !codec g711ULAW
+  dial-peer voice 12 Voip
+  destination-pattern 12..
+  session target ipv4:10.12.100.8
+  codec g711ULAW
 dial-peer voice 21 Voip
  destination-pattern 21..
  session target ipv4:10.21.100.8
@@ -328,10 +328,10 @@ dial-peer voice 61 Voip
  destination-pattern 61..
  session target ipv4:10.61.100.8
  codec g711ULAW
-dial-peer voice 62 Voip
- destination-pattern 62..
- session target ipv4:10.62.100.8
- codec g711ULAW
+!dial-peer voice 62 Voip
+ !destination-pattern 62..
+ !session target ipv4:10.62.100.8
+ !codec g711ULAW
 dial-peer voice 71 Voip
  destination-pattern 71..
  session target ipv4:10.71.100.8
@@ -413,11 +413,11 @@ int gi 0/1
 end
 
 @CUCM:
-config t
-router ospf 1
-router-id 10.62.100.8
-network 10.62.100.0  0.0.0.255  area 0
-end
+	config t
+	router ospf 1
+	router-id 10.62.100.8
+	network 10.62.100.0  0.0.0.255  area 0
+	end
 
 EXAM READY DAY1: NAT, NTP, DHCP, and SSH
 NAT: NETWORK ADDRESS TRANSLATION: BIGAY INTERNET SA MUNDO NI CISCO.
@@ -646,7 +646,7 @@ conf t
    name 6272
 !
   voice register pool 1
-    id mac ____.____.____
+    id mac FE61.2FA2.E448
     number 1 dn 1
     dtmf-relay sip-notify
     username 6271 password 6271
@@ -672,6 +672,7 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
 
 
